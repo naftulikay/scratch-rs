@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<device timestamp="1688712542">
+    <outputs>
+        <!--
+
+        MODELS:
+            abstract_output:
+                stereo: bool
+                mute: bool
+                source: Option<Source>
+                nickname: String (ideally Option<String>)
+                gain: i16 (not sure if this is a float or what the full range is, how do you represent infinity)
+
+            analogue_output extends abstract_output:
+                hardware-control: bool
+
+            spdif_rca_output extends abstract_output: {}
+
+            loopback_output extends abstract_output: {}
+
+        NOTES:
+            1. it seems that the _index_ here is important, that the _index_ is associated with which output it is?
+               if 'stereo' is selected for one of the outputs, this indicates that the single XML entry actually
+               represents *two* inputs that are seen as stereo components of one another. it really seems that whoever
+               *designed* this application either did not know much about what the actual functional possibilities
+               were, or that the design was forced through *entirely* on design for a certain type of user. As is the
+               case elsewhere, this leads to a design which is *absolutely* not directly mappable to actual underlying
+               data model.
+        -->
+        <analogue stereo="true" mute="false" source="Mix A" nickname="" gain="-16" hardware-control="true"/>
+        <analogue stereo="true" mute="false" nickname="" gain="-16" hardware-control="true"/>
+        <analogue stereo="false" mute="false" source="Analogue 2" nickname="" gain="0" hardware-control="false"/>
+        <analogue stereo="false" mute="true" source="Analogue 2" nickname="" gain="0" hardware-control="false"/>
+        <analogue stereo="true" mute="false" source="Mix B" nickname="" gain="0" hardware-control="false"/>
+        <analogue stereo="true" mute="false" nickname="" gain="0" hardware-control="false"/>
+        <analogue stereo="true" mute="false" source="Mix C" nickname="" gain="0" hardware-control="false"/>
+        <analogue stereo="true" mute="false" nickname="" gain="0" hardware-control="false"/>
+        <spdif-rca stereo="true" mute="false" source="Playback 1" nickname=""/>
+        <spdif-rca stereo="true" mute="false" nickname=""/>
+        <loopback stereo="true" mute="false" source="Playback 1" nickname=""/>
+        <loopback stereo="true" mute="false" nickname=""/>
+    </outputs>
+    <record-outputs>
+        <!--
+
+        NOTES:
+            1. once again, we see some very *cough* interesting ways that the application works with profile files. For
+               instance, note that nearly ever other "record output" is simply `<record/>` with literally no associated
+               data. this relies on the convention, it seems, perhaps as in other places, in having a very imperative
+               configuration format. rather than using something like a "group with" association, and mapping things
+               directly to named values, it relies on order within the file. I wonder if they are parsing XML by hand
+               and literally writing code as the parser chews through the file to make changes to the hardware, ie
+               maintaining a stack of logic/recursive function calls/a very complex set of for loops, rather than
+               parse -> validate -> execute.
+        -->
+        <record hardware-input="0" hardware-input-m="0" hardware-input-h="0"/>
+        <record/>
+        <record hardware-input="2" hardware-input-m="2" hardware-input-h="2"/>
+        <record/>
+        <record hardware-input="4" hardware-input-m="4" hardware-input-h="4"/>
+        <record/>
+        <record hardware-input="6" hardware-input-m="6" hardware-input-h="6"/>
+        <record/>
+        <record hardware-input="8" hardware-input-m="8" hardware-input-h="8"/>
+        <record/>
+        <record hardware-input="10" hardware-input-m="10" hardware-input-h="10"/>
+        <record/>
+        <record hardware-input="12" hardware-input-m="12" hardware-input-h="0"/>
+        <record/>
+        <record hardware-input="14" hardware-input-m="14" hardware-input-h="0"/>
+        <record/>
+        <record hardware-input="16" hardware-input-m="0" hardware-input-h="0"/>
+        <record/>
+        <record hardware-input="18" hardware-input-m="0" hardware-input-h="0"/>
+        <record/>
+    </record-outputs>
+    <inputs>
+        <analogue nickname="" air="false" mode="Line" pad="false"/>
+        <analogue nickname="" air="false" mode="Inst" pad="false"/>
+        <analogue nickname="" air="false" pad="false"/>
+        <analogue nickname="" air="false" pad="false"/>
+        <analogue nickname=""/>
+        <analogue nickname=""/>
+        <analogue nickname=""/>
+        <analogue nickname=""/>
+        <spdif-rca nickname=""/>
+        <spdif-rca nickname=""/>
+        <adat nickname=""/>
+        <adat nickname=""/>
+        <adat nickname=""/>
+        <adat nickname=""/>
+        <adat nickname=""/>
+        <adat nickname=""/>
+        <adat nickname=""/>
+        <adat nickname=""/>
+        <playback nickname=""/>
+        <playback nickname=""/>
+        <playback nickname=""/>
+        <playback nickname=""/>
+        <playback nickname=""/>
+        <playback nickname=""/>
+        <playback nickname=""/>
+        <playback nickname=""/>
+    </inputs>
+    <mixer>
+        <mixes>
+            <mix>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+            </mix>
+            <mix/>
+            <mix>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+            </mix>
+            <mix/>
+            <mix>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+            </mix>
+            <mix/>
+            <mix>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+            </mix>
+            <mix/>
+            <mix>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+                <input gain="0" pan="0" mute="false" solo="false"/>
+            </mix>
+            <mix/>
+        </mixes>
+        <inputs>
+            <input right="1" stereo="true" source="Analogue 5"/>
+            <input stereo="true" source="Analogue 6"/>
+            <input right="3" stereo="true" source="Playback 1"/>
+            <input stereo="true" source="Playback 2"/>
+            <input right="5" stereo="true" source="Analogue 7"/>
+            <input stereo="true" source="Analogue 8"/>
+            <input stereo="false" source=""/>
+            <input stereo="false" source=""/>
+            <input stereo="false" source=""/>
+            <input stereo="false" source=""/>
+            <input stereo="false" source=""/>
+            <input stereo="false" source=""/>
+            <input stereo="false" source=""/>
+            <input stereo="false" source=""/>
+            <input stereo="false" source=""/>
+            <input stereo="false" source=""/>
+            <input stereo="false" source=""/>
+            <input stereo="false" source=""/>
+            <input stereo="false" source=""/>
+            <input stereo="false" source=""/>
+        </inputs>
+    </mixer>
+    <settings spdif-mode="RCA" phantom-persistence="true"/>
+    <clocking/>
+    <monitoring preset="1-2"/>
+</device>

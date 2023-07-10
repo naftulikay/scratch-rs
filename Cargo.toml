@@ -1,0 +1,12 @@
+[workspace]
+members = [
+    "test_serde_xml",
+]
+
+[workspace.dependencies]
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+serde = { version = "1", features = ["derive"] }
+serde_any = "0.5"
+serde_json = "1"
+serde_xml = { version = "0.6", package = "serde-xml-rs" }  # NOTE this is not serde-xml, but serde-xml-rs
+serde_yaml = "0.9"
