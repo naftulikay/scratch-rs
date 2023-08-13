@@ -2,6 +2,7 @@
 members = [
     "test_inotify",
     "test_serde_xml",
+    "test_token_auth",
 ]
 
 [workspace.dependencies]
